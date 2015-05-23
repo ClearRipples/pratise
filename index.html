@@ -158,7 +158,8 @@
      <script type="text/javascript">
              seajs.use(['$','sea-modules/handlebars','side','sea-modules/underscore'], function($,Handlebars, Side, _) {
               //用jquery获取模板
-              var tpl   =  $("#list-tpl").html();
+              //var tpl =  $("#list-tpl").html();
+              var tpl =  document.querySelector('#list-tpl').innerHTML;
 
               //预编译模板
               var template = Handlebars.compile(tpl);
