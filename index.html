@@ -103,6 +103,7 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+          <div class="content">
           <script id="list-tpl" type="text/x-handlebars-template"> 
             {{#each list}}
             <li {{#unless child}} data-id="{{name}}" {{/unless}}>
@@ -138,7 +139,22 @@
 
           <div class="pratise-modules"></div>
 
-          <script type="text/javascript">
+         </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/bootstrap/dist//js/bootstrap.min.js"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="asset/js/vendor/holder.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="asset/js/ie10-viewport-bug-workaround.js"></script>
+
+     <script type="text/javascript">
              seajs.use(['$','sea-modules/handlebars','side','sea-modules/underscore'], function($,Handlebars, Side, _) {
               //用jquery获取模板
               var tpl   =  $("#list-tpl").html();
@@ -283,18 +299,5 @@
               Side.init();
           });
           </script>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="bower_components/bootstrap/dist//js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="asset/js/vendor/holder.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="asset/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>
