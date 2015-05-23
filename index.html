@@ -34,16 +34,16 @@
     <script>
        var $ = jQuery;
         seajs.config({
-          base: "http://clearripples.github.io/pratise/statics/sea-modules",
+          base: "http://clearripples.github.io/pratise/statics",
           alias: {
             
-            "$": "jquery",
-            "sticky":"sticky",
-            "side":"/statics/side",
-            "handlebars": "handlebars"
+            "$": "sea-modules/jquery",
+            "sticky":"sea-modules/sticky",
+            "side":"side",
+            "handlebars": "sea-modules/handlebars"
           }
         });
-        seajs.use(['sticky','side'], function(Sticky,Side) {
+        seajs.use(['sea-modules/sticky','side'], function(Sticky,Side) {
             Side.init();
             if(document.body.clientWidth>980){
                 Sticky('.nav-sidebar', 20);
@@ -132,7 +132,7 @@
           <div class="pratise-modules"></div>
 
           <script type="text/javascript">
-             seajs.use(['$','sea-moduleshandlebars','side','underscore'], function($,Handlebars, Side, _) {
+             seajs.use(['$','sea-modules/handlebars','side','sea-modules/underscore'], function($,Handlebars, Side, _) {
               //用jquery获取模板
               var tpl   =  $("#list-tpl").html();
               //预编译模板
