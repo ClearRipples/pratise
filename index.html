@@ -22,7 +22,7 @@
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
     <script src="asset/js/ie-emulation-modes-warning.js"></script>
-    <script src="bower_components/jquery/dist//jquery.min.js"></script>
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,28 +36,7 @@
       .nav-sidebar .side-highlight a{background: none}
       .nav-sidebar .side-highlight > a{border-right: 1px solid #025775;}
     </style>
-
-    <script type="text/javascript" src = "statics/sea-modules/seajs/seajs/2.2.3/sea.js"></script>
-    <script>
-       var $ = jQuery;
-        seajs.config({
-          base: "http://clearripples.github.io/pratise/statics",
-          alias: {
-            
-            "$": "sea-modules/jquery",
-            "sticky":"sea-modules/sticky",
-            "side":"side",
-            "handlebars": "sea-modules/handlebars"
-          }
-        });
-        seajs.use(['sea-modules/sticky','side'], function(Sticky,Side) {
-            Side.init();
-            if(document.body.clientWidth>980){
-                Sticky('.nav-sidebar', 20);
-            }
-            
-        });
-    </script>
+    
   </head>
 
   <body>
@@ -148,12 +127,34 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="bower_components/jquery/dist//jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist//js/bootstrap.min.js"></script>
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="asset/js/vendor/holder.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="asset/js/ie10-viewport-bug-workaround.js"></script>
 
+    <script type="text/javascript" src = "statics/sea-modules/seajs/seajs/2.2.3/sea.js"></script>
+    <script>
+       var $ = jQuery;
+        seajs.config({
+          base: "http://clearripples.github.io/pratise/statics",
+          alias: {
+            
+            "$": "sea-modules/jquery",
+            "sticky":"sea-modules/sticky",
+            "side":"side",
+            "handlebars": "sea-modules/handlebars"
+          }
+        });
+        seajs.use(['sea-modules/sticky','side'], function(Sticky,Side) {
+            Side.init();
+            if(document.body.clientWidth>980){
+                Sticky('.nav-sidebar', 20);
+            }
+            
+        });
+    </script>
      <script type="text/javascript">
              seajs.use(['$','sea-modules/handlebars','side','sea-modules/underscore'], function($,Handlebars, Side, _) {
               //用jquery获取模板
