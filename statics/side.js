@@ -22,9 +22,9 @@ define(function(require, exports, module) {
                 i--;
                 i = (i<0) ? 0 : i;
             }
-            $('..nav-sidebar .side-highlight').removeClass('side-highlight');
-            $('..nav-sidebar li[data-id]').eq(i).addClass('side-highlight');
-            $('..nav-sidebar li[data-id]').eq(i).parent().parent("li").addClass('side-highlight');
+            $('.nav-sidebar .side-highlight').removeClass('side-highlight');
+            $('.nav-sidebar li[data-id]').eq(i).addClass('side-highlight');
+            $('.nav-sidebar li[data-id]').eq(i).parent().parent("li").addClass('side-highlight');
         });
     };
 
