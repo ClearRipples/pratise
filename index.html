@@ -28,6 +28,28 @@
       <script src="http://cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="http://cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript" src = "static/sea-module/seajs/seajs/2.2.3/sea.js"></script>
+    <script>
+       var $ = jQuery;
+        seajs.config({
+          base: "/static/sea-modules/",
+          alias: {
+            
+            "$": "jquery",
+            "sticky":"sticky",
+            "side":"/static/side",
+            "handlebars": "handlebars"
+          }
+        });
+        seajs.use(['sticky','side'], function(Sticky,Side) {
+            Side.init();
+            if(document.body.clientWidth>980){
+                Sticky('.nav-sidebar', 20);
+            }
+            
+        });
+    </script>
   </head>
 
   <body>
@@ -73,159 +95,186 @@
           </ul>
         </div>
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
+          <script id="list-tpl" type="text/x-handlebars-template"> 
+            {{#each list}}
+            <li {{#unless child}} data-id="{{name}}" {{/unless}}>
+                <a href="#modules-{{name}}" >{{title}}</a>
+                {{#if child}}
+                <ul class="nav">
+                {{#each child}}
+                    <li data-id="{{name}}"><a href="#modules-{{name}}">{{name}}</a></li>
+                {{/each}}
+                </ul>
+                {{/if}}
+            </li>
+            {{/each}}
+          </script>
 
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="asset/js/vendor/holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="asset/js/vendor/holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="asset/js/vendor/holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="asset/js/vendor/holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
+          <script type="text/template" id = "pratise-module">
+            <div class="pratise-module row">
+              <div class="pratise-module-head">
+                <div class="pratise-module-title">
+                  <a href="#"></a>
+                </div>
+              </div>
+            <div>
+          </script>
 
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <script type="text/template" id="pratise-module-demo">
+              <div class="pratise-module-demo">
+                  <h3 class="pratise-module-subtitle"></h3>
+                  <div class="pratise-module-dom"></div>
+                  <pre class="pratise-module-code"></pre>
+              </div>
+            </script>
+
+          <div class="pratise-modules"></div>
+
+          <script type="text/javascript">
+             seajs.use(['$','handlebars','/static/side','gallery/underscore/1.6.0/underscore'], function($,Handlebars, Side, _) {
+              //用jquery获取模板
+              var tpl   =  $("#list-tpl").html();
+              //预编译模板
+              var template = Handlebars.compile(tpl);
+              //模拟json数据
+              var context = { 
+                  list:[
+                      {
+                          name: "ui-btn",
+                          title: "按钮 button",
+                          child:[
+                              {
+                                  name: "ui-btn"
+                              },
+                              {
+                                  name: "ui-btn-lg" 
+                              },
+                              {
+                                  name: "ui-btn-group" 
+                              }
+                          ]
+                      },
+                      {
+                          name: "atom",
+                          title: "辅助类 atom"
+                      },
+                      {
+                          name: "ui-searchbar",
+                          title: "搜索框 searchbar"
+                      },
+                      {
+                          name: "ui-tab",
+                          title: "选项卡 tab"
+                      },
+                      {
+                          name: "ui-slider",
+                          title: "图片轮播 slider"
+                      },
+                      {
+                          name:"ui-list",
+                          title: "列表 list"
+                      },
+                      {
+                          name:"ui-form",
+                          title: "表单项 form",
+                          child: [
+                              {
+                                  name: "ui-form"
+                              },
+                              {
+                                  name: "ui-checkbox" 
+                              },
+                              {
+                                  name: "ui-switch" 
+                              },
+                              {
+                                  name: "ui-radio"
+                              }
+                          ]
+                      },
+                      {
+                          name:"ui-table",
+                          title: "表格 table"
+                      },
+                      {
+                          name:"ui-dialog",
+                          title: "弹窗 dialog"
+                      },
+                      {
+                          name:"ui-notice",
+                          title: "通知 notice"
+                      },
+                      {
+                          name:"ui-tips",
+                          title: "提示 tips",
+                          child: [
+                              {
+                                  name: "ui-tips"
+                              },
+                              {
+                                  name: "ui-poptips" 
+                              },
+                              {
+                                  name: "ui-tooltips" 
+                              }
+                          ]
+                      },
+                      {
+                          name:"ui-loading",
+                          title: "加载中 loading"
+                      },
+                      {
+                          name:"ui-grid",
+                          title: "网格 grid"
+                      },
+                      {
+                          name:"ui-progress",
+                          title: "进度条 progress"
+                      }                    
+                  ]
+              };
+              //匹配json内容
+              $('.nav-sidebar').html(template(context));
+
+              var deps = $('.side-area li[data-id]');
+              _.each(deps, function(dep) {
+                  var moduleNode = $($('#pratise-module').html());
+                  moduleNode.find('.pratise-module-title a')
+                      .attr('href', $(dep).data('id'))
+                      .attr('id', 'modules-' + $(dep).data('id'))
+                      .html($(dep).data('id'));
+                  moduleNode.appendTo('.pratise-modules');
+                  $.ajax({
+                      url:  $(dep).data('id'),
+                      dataType: 'html',
+                      success: function(data) {
+                          data = $(data);
+                          moduleNode.find('.pratise-module-description')
+                              .html(data.find('.entry-content > p:first-child').html());
+                          data.find('.nico-insert-code').each(function(index, item) {
+                              var demoNode = $($('#pratise-module-demo').html());
+                              item = $(item);
+                              var subtitle = item.prev().html();
+                              if (item.prev()[0].tagName !== 'H3' || !subtitle) {
+                                  subtitle = '默认';
+                              }
+                              demoNode.find('.pratise-module-subtitle').html(subtitle);
+                              demoNode.find('.pratise-module-dom').html(item.html());
+
+                              // 直接使用目标页面生成的高亮代码，不再动态渲染
+                              var codeHtml = item.next('.highlight').find('pre').html();
+                              demoNode.find('.pratise-module-code').html(codeHtml);
+
+                              moduleNode.find('.pratise-loading').remove();
+                              demoNode.appendTo(moduleNode);
+                          });
+                      }
+                  });
+              }); 
+              Side.init();
+          });
+          </script>
+
         </div>
       </div>
     </div>
