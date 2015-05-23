@@ -3,7 +3,7 @@ define(function(require, exports, module) {
     var $ = require('$');
     
     exports.init = function() {
-        var titles = $('.main > .content > h2, h2.frozen-module-title');
+        var titles = $('.main > .content > h2, h2.pratise-module-title');
         var doc = $(document);
         if (titles.length <= 0) {
             return;
@@ -22,9 +22,9 @@ define(function(require, exports, module) {
                 i--;
                 i = (i<0) ? 0 : i;
             }
-            $('.side-area .side-highlight').removeClass('side-highlight');
-            $('.side-area li[data-id]').eq(i).addClass('side-highlight');
-            $('.side-area li[data-id]').eq(i).parent().parent("li").addClass('side-highlight');
+            $('..nav-sidebar .side-highlight').removeClass('side-highlight');
+            $('..nav-sidebar li[data-id]').eq(i).addClass('side-highlight');
+            $('..nav-sidebar li[data-id]').eq(i).parent().parent("li").addClass('side-highlight');
         });
     };
 
