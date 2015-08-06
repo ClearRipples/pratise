@@ -1,0 +1,1 @@
+在安卓 webview 中使用 input checkbox 需要使用 inputSelector.checked = true/false 来处理选中或不选中的状态， 使用 setAttribute 会造成失效
