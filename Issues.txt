@@ -1,1 +1,3 @@
-在安卓 webview 中使用 input checkbox 需要使用 inputSelector.checked = true/false 来处理选中或不选中的状态， 使用 setAttribute 会造成失效
+#1. 在安卓 webview 中使用 input checkbox 需要使用 inputSelector.checked = true/false 来处理选中或不选中的状态， 使用 setAttribute 会造成失效；
+
+#2. JS 事件的冒泡和事件的捕获，在 webkit 内核的浏览器中 使用 addEventLisener 来进行事件的监听，addEventListener(type,fn,true/false), 最后的参数即是控制改事件是采用 冒泡（false）或者 事件捕获（true), 正常情况下，冒泡是指从最精确的元素，一直到最模糊的元素，而捕获这是从最精准的元素到最模糊的元素，在捕获到事件的触发元素的时候需要使用 e.stopPropagation() 来阻止事件继续冒泡，或者使用 e.preventDefault 来阻止元素的默认事件
